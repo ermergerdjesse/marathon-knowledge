@@ -3,67 +3,79 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marathon Knowledge Base</title>
+  <title>Marathon Production Knowledge Base</title>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.basic.min.js"></script>
 </head>
 <body>
 
-  <!-- Top Navigation Header -->
-  <header class="top-nav">
-    <div class="nav-brand" id="brandHome" title="Return to Search">
-      <span class="brand-title">Marathon KB</span>
-      <span class="badge">V0.1</span>
-    </div>
-  </header>
-
-  <main class="app-container">
-    <!-- Home / Search View -->
-    <section id="searchHomeView" class="view-active">
-      <div class="search-hero">
-        <h1>Production Knowledge Base</h1>
-        <p>Search workflows, press quirks, SiteFlow formulas, and bindery troubleshooting.</p>
-        
-        <div class="search-box-wrapper">
-          <input type="text" id="searchInput" placeholder="Type a symptom, machine, or error (e.g. BQ-500, HP 120K, auto-send)..." autocomplete="off" autofocus />
-        </div>
-
-        <div class="category-filter-wrapper">
-          <span class="filter-label">Filter Category:</span>
-          <div class="category-pills" id="categoryPills">
-            <button class="pill active" data-cat="all">All</button>
-            <button class="pill" data-cat="SiteFlow">SiteFlow</button>
-            <button class="pill" data-cat="Press">Presses</button>
-            <button class="pill" data-cat="Prepress">Prepress / Impostrip</button>
-            <button class="pill" data-cat="Bindery">Bindery</button>
-          </div>
-        </div>
+  <div class="main-layout">
+    
+    <!-- TIMELINE Side Navigation -->
+    <aside class="side-nav">
+      <div class="brand">
+        <h1>Marathon Production KB</h1>
+        <span class="badge">V0.1</span>
       </div>
-
-      <!-- Live Search Results Grid -->
-      <div class="results-container">
-        <div class="results-header" id="resultsCount">All Documentation</div>
-        <div class="results-grid" id="resultsGrid">
-          <!-- Article cards injected by app.js -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Reading / Article View -->
-    <section id="articleReaderView" class="view-hidden">
-      <button class="back-btn" id="backToSearchBtn">← Back to Search</button>
       
-      <div class="reader-meta" id="readerMeta">
-        <span id="articleCategoryTag" class="tag"></span>
-        <span id="articleDateTag" class="date-text"></span>
+      <div class="nav-section">
+        <h2>CORE TOPICS</h2>
+        <ul id="categoryList">
+          <li class="active" data-cat="all">All Documentation</li>
+          <li data-cat="SiteFlow">SiteFlow</li>
+          <li data-cat="Presses">Presses</li>
+          <li data-cat="Prepress / Impostrip">Prepress / Impostrip</li>
+          <li data-cat="Bindery">Bindery</li>
+        </ul>
       </div>
+      
+      <div class="nav-footer">
+        <p>A repository for workflow and process optimization.</p>
+        <p>&copy; <span id="currentYear"></span> Marathon Press</p>
+      </div>
+    </aside>
 
-      <article id="articleMarkdownContent" class="markdown-body">
-        <!-- Rendered markdown injected here -->
+    <!-- Content Area (Canvas) -->
+    <main class="content-canvas">
+      
+      <!-- Search Interface -->
+      <header class="content-header">
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          <input type="text" id="searchInput" placeholder="Search workflow solutions, error codes, machine fixes..." autocomplete="off">
+        </div>
+        <button id="addArticleBtn" class="primary-btn view-hidden">+ NEW ARTICLE</button>
+      </header>
+
+      <!-- Articles Grid/List -->
+      <section id="resultsSection" class="results-area view-active">
+        <div class="results-info" id="resultsCount">Loading documentation...</div>
+        <div id="resultsList" class="results-list">
+          <!-- Articles are injected here by app.js -->
+        </div>
+      </section>
+
+      <!-- TIMELINE Markdown Reader (Centered) -->
+      <article id="articleReader" class="reader-area view-hidden">
+        <button class="back-link" id="backToResults">← Back to search results</button>
+        
+        <div class="reader-header">
+          <span id="articleCategoryTag" class="category-tag"></span>
+          <p id="articleMetaDate" class="date-meta"></p>
+        </div>
+
+        <div id="markdownBody" class="markdown-content">
+          <!-- Rendered markdown injected here -->
+        </div>
       </article>
-    </section>
-  </main>
+
+    </main>
+  </div>
 
   <script src="app.js"></script>
 </body>
