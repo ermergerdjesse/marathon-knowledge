@@ -1,126 +1,140 @@
-let allArticles = [];
+// --- Timeless Application Logic ---
+let articles = [];
 let fuse;
-let selectedCategory = 'all';
+let activeCategory = 'all';
 
 async function init() {
+  // Set current year in footer
+  document.getElementById('currentYear').innerText = new Date().getFullYear();
+  
   try {
-    const res = await fetch('articles.json');
-    allArticles = await res.json();
+    const response = await fetch('articles.json');
+    if (!response.ok) throw new Error('Could not fetch articles.json');
+    articles = await response.json();
 
-    // Fuse.js fuzzy search setup
-    fuse = new Fuse(allArticles, {
+    // Fuse.js Fuzzy Search Configuration
+    // We prioritize title and tags for 10-year durability
+    fuse = new Fuse(articles, {
       keys: [
         { name: 'title', weight: 0.5 },
         { name: 'tags', weight: 0.3 },
-        { name: 'summary', weight: 0.15 },
-        { name: 'category', weight: 0.05 }
+        { name: 'summary', weight: 0.2 }
       ],
-      threshold: 0.3, // Lower threshold = stricter search accuracy
-      ignoreLocation: true
+      threshold: 0.4
     });
 
-    renderCards(allArticles);
-    setupEvents();
+    renderArticlesList(articles);
+    bindUIEvents();
   } catch (err) {
-    console.error('Error loading articles.json:', err);
+    document.getElementById('resultsCount').innerText = 'ERROR: Documentation database could not be loaded.';
+    console.error(err);
   }
 }
 
-function filterAndSearch() {
+// Filters articles by category *and* search query simultaneously
+function updateResults() {
   const query = document.getElementById('searchInput').value.trim();
-  let filtered = allArticles;
+  let results = articles;
 
-  // 1. Text Search (if typed)
+  // 1. Category Filter
+  if (activeCategory !== 'all') {
+    results = results.filter(a => a.category.toLowerCase() === activeCategory.toLowerCase());
+  }
+
+  // 2. Search Query (if present)
   if (query) {
-    filtered = fuse.search(query).map(r => r.item);
+    results = fuse.search(query).map(r => r.item);
   }
 
-  // 2. Category Filter (if not 'all')
-  if (selectedCategory !== 'all') {
-    filtered = filtered.filter(a => a.category.toLowerCase() === selectedCategory.toLowerCase());
-  }
-
-  // Update UI count
-  const countLabel = document.getElementById('resultsCount');
-  if (query || selectedCategory !== 'all') {
-    countLabel.innerText = `Found ${filtered.length} matching item${filtered.length === 1 ? '' : 's'}`;
+  // UI Updates
+  const countSpan = document.getElementById('resultsCount');
+  if (query) {
+    countSpan.innerText = `Found ${results.length} result${results.length === 1 ? '' : 's'} for "${query}"`;
   } else {
-    countLabel.innerText = 'All Documentation';
+    countSpan.innerText = `${activeCategory === 'all' ? 'All' : activeCategory} Documentation (${results.length})`;
   }
 
-  renderCards(filtered);
+  renderArticlesList(results);
 }
 
-function renderCards(list) {
-  const container = document.getElementById('resultsGrid');
+// Builds the list of article cards
+function renderArticlesList(list) {
+  const container = document.getElementById('resultsList');
   container.innerHTML = '';
 
   if (list.length === 0) {
-    container.innerHTML = `
-      <div style="grid-column: 1 / -1; text-align: center; padding: 3rem 0; color: #64748b;">
-        <p>No documentation found matching your search.</p>
-      </div>
-    `;
+    container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #64748b; padding: 3rem;">No documentation matching your filter and search criteria.</p>';
     return;
   }
 
   list.forEach(article => {
     const card = document.createElement('div');
-    card.className = 'card';
+    card.className = 'result-card';
     card.innerHTML = `
-      <div>
-        <div class="card-category">${article.category}</div>
-        <h3>${article.title}</h3>
-        <p>${article.summary}</p>
-      </div>
-      <div class="card-footer">Updated: ${article.updated}</div>
+      <div class="result-category">${article.category}</div>
+      <h3 class="result-title">${article.title}</h3>
+      <p class="result-summary">${article.summary}</p>
     `;
-    card.onclick = () => showArticle(article);
+    card.onclick = () => openArticle(article);
     container.appendChild(card);
   });
 }
 
-async function showArticle(article) {
+// Renders Markdown into the centered viewer
+async function openArticle(article) {
   try {
-    const res = await fetch(article.path);
-    const md = await res.text();
+    const response = await fetch(article.path);
+    if (!response.ok) throw new Error('Markdown file not found');
+    const mdContent = await response.text();
 
+    // Inject content
     document.getElementById('articleCategoryTag').innerText = article.category;
-    document.getElementById('articleDateTag').innerText = `Last updated: ${article.updated}`;
-    document.getElementById('articleMarkdownContent').innerHTML = marked.parse(md);
+    document.getElementById('articleMetaDate').innerText = `Last updated: ${article.updated}`;
+    document.getElementById('markdownBody').innerHTML = marked.parse(mdContent);
 
-    // Switch views
-    document.getElementById('searchHomeView').className = 'view-hidden';
-    document.getElementById('articleReaderView').className = 'view-active';
-    window.scrollTo(0, 0);
+    // Switch Views
+    document.getElementById('resultsSection').className = 'results-area view-hidden';
+    document.getElementById('articleReader').className = 'reader-area view-active';
+    document.getElementById('searchInput').parentElement.style.opacity = 0.2; // Dim search when reading
+    document.getElementById('articleReader').scrollTo(0, 0); // Reset scroll to top
+
   } catch (err) {
-    console.error('Failed reading markdown:', err);
+    console.error(err);
+    alert('Error loading the article content.');
   }
 }
 
-function showHome() {
-  document.getElementById('articleReaderView').className = 'view-hidden';
-  document.getElementById('searchHomeView').className = 'view-active';
+// Navigation back to search
+function closeArticle() {
+  document.getElementById('articleReader').className = 'reader-area view-hidden';
+  document.getElementById('resultsSection').className = 'results-area view-active';
+  document.getElementById('searchInput').parentElement.style.opacity = 1; // Restore search
 }
 
-function setupEvents() {
-  // Real-time input search
-  document.getElementById('searchInput').addEventListener('input', filterAndSearch);
+// Binds all DOM click/input events
+function bindUIEvents() {
+  // Real-time Search Input
+  document.getElementById('searchInput').addEventListener('input', updateResults);
 
-  // Category selection pills
-  document.getElementById('categoryPills').addEventListener('click', (e) => {
-    if (e.target.tagName !== 'BUTTON') return;
+  // Side Nav Category Filtering
+  document.getElementById('categoryList').addEventListener('click', (e) => {
+    if (e.target.tagName !== 'LI') return;
 
-    document.querySelectorAll('.pill').forEach(btn => btn.classList.remove('active'));
+    // Update active nav state
+    document.querySelectorAll('#categoryList li').forEach(li => li.classList.remove('active'));
     e.target.classList.add('active');
 
-    selectedCategory = e.target.dataset.cat;
-    filterAndSearch();
+    activeCategory = e.target.dataset.cat;
+    
+    // Clear search and switch to results view
+    document.getElementById('searchInput').value = '';
+    closeArticle(); 
+    updateResults();
   });
 
-  // Navigation back buttons
-  document.getElementById('backToSearchBtn').addEventListener('click', showHome);
-  document.getElementById('brandHome').addEventListener('click', showHome);
+  // Back Button
+  document.getElementById('backToResults').addEventListener('click', closeArticle);
 }
 
+// Entry point
 window.onload = init;
