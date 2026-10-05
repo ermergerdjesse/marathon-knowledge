@@ -3,80 +3,565 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marathon Production Knowledge Base</title>
-  <!-- Google Fonts: Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <title>Marathon Press — Production Knowledge Base</title>
+  
+  <!-- Markdown parser & Search engine -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.basic.min.js"></script>
+
+  <style>
+    /* =========================================================
+       MARATHON BRAND DESIGN SYSTEM (Embedded - Never breaks)
+       ========================================================= */
+    :root {
+      --mp-red: #c8102e;
+      --mp-red-hover: #a50b23;
+      --mp-dark: #111827;
+      --mp-slate: #1f2937;
+      --mp-border: #e5e7eb;
+      --mp-card-border: #e2e8f0;
+      --mp-bg: #f8fafc;
+      --mp-text-main: #0f172a;
+      --mp-text-muted: #64748b;
+      --mp-card-bg: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--mp-bg);
+      color: var(--mp-text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Navigation */
+    .mp-header {
+      background-color: #ffffff;
+      border-bottom: 2px solid var(--mp-border);
+      padding: 0 2rem;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .mp-brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .mp-logo-badge {
+      background-color: var(--mp-red);
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      padding: 6px 12px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    .mp-title-lockup h1 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--mp-dark);
+      letter-spacing: -0.01em;
+    }
+
+    .mp-title-lockup p {
+      font-size: 0.75rem;
+      color: var(--mp-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+
+    .header-tag {
+      font-size: 0.75rem;
+      color: var(--mp-text-muted);
+      font-weight: 600;
+    }
+
+    /* Main Container */
+    .mp-container {
+      max-width: 1040px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem 1.5rem;
+      flex: 1;
+    }
+
+    /* Hero / Search Section */
+    .hero-section {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .hero-section h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--mp-dark);
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-section p {
+      font-size: 1.1rem;
+      color: var(--mp-text-muted);
+      max-width: 640px;
+      margin: 0 auto 2rem auto;
+    }
+
+    /* Clean Search Bar */
+    .search-container {
+      max-width: 720px;
+      margin: 0 auto 1.5rem auto;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 1.1rem 1.4rem;
+      font-size: 1.1rem;
+      border: 2px solid var(--mp-border);
+      border-radius: 8px;
+      background: #ffffff;
+      color: var(--mp-dark);
+      outline: none;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .search-input:focus {
+      border-color: var(--mp-red);
+      box-shadow: 0 0 0 4px rgba(200, 16, 46, 0.12);
+    }
+
+    /* Category Pill Selectors */
+    .category-pills {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .pill {
+      background-color: #ffffff;
+      border: 1px solid var(--mp-border);
+      color: var(--mp-slate);
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .pill:hover {
+      border-color: var(--mp-red);
+      color: var(--mp-red);
+    }
+
+    .pill.active {
+      background-color: var(--mp-dark);
+      border-color: var(--mp-dark);
+      color: #ffffff;
+    }
+
+    /* Results Header & Grid */
+    .results-status {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--mp-border);
+    }
+
+    .results-status span {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--mp-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .doc-card {
+      background-color: var(--mp-card-bg);
+      border: 1px solid var(--mp-card-border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .doc-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--mp-red);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+    }
+
+    .doc-card-category {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--mp-red);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+    }
+
+    .doc-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--mp-dark);
+      line-height: 1.35;
+      margin-bottom: 0.5rem;
+    }
+
+    .doc-card p {
+      font-size: 0.9rem;
+      color: var(--mp-text-muted);
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .doc-card-footer {
+      margin-top: 1.25rem;
+      font-size: 0.75rem;
+      color: var(--mp-text-muted);
+      font-weight: 600;
+    }
+
+    /* Article Reader */
+    .reader-pane {
+      background-color: #ffffff;
+      border: 1px solid var(--mp-card-border);
+      border-radius: 10px;
+      padding: 3rem 4rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      background: none;
+      border: none;
+      color: var(--mp-red);
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      margin-bottom: 2rem;
+      padding: 0;
+    }
+
+    .back-btn:hover {
+      text-decoration: underline;
+    }
+
+    .reader-header {
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--mp-border);
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .reader-category-badge {
+      background-color: #fef2f2;
+      color: var(--mp-red);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .reader-date {
+      font-size: 0.85rem;
+      color: var(--mp-text-muted);
+      font-weight: 500;
+    }
+
+    /* Clean Markdown Typography */
+    .markdown-body {
+      color: #334155;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .markdown-body h1 {
+      font-size: 2.25rem;
+      color: var(--mp-dark);
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .markdown-body h2 {
+      font-size: 1.5rem;
+      color: var(--mp-dark);
+      font-weight: 700;
+      margin: 2rem 0 1rem 0;
+      border-bottom: 1px solid var(--mp-border);
+      padding-bottom: 0.5rem;
+    }
+
+    .markdown-body h3 {
+      font-size: 1.25rem;
+      color: var(--mp-dark);
+      font-weight: 700;
+      margin: 1.5rem 0 0.5rem 0;
+    }
+
+    .markdown-body p { margin-bottom: 1.25rem; }
+
+    .markdown-body ul, .markdown-body ol {
+      margin: 0 0 1.5rem 1.5rem;
+    }
+
+    .markdown-body li { margin-bottom: 0.4rem; }
+
+    .markdown-body blockquote {
+      border-left: 4px solid var(--mp-red);
+      padding: 1rem 1.25rem;
+      background-color: #f8fafc;
+      border-radius: 0 6px 6px 0;
+      margin: 1.5rem 0;
+      color: var(--mp-slate);
+      font-style: italic;
+    }
+
+    .markdown-body code {
+      background: #f1f5f9;
+      color: var(--mp-red);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.9em;
+    }
+
+    .markdown-body pre code {
+      display: block;
+      padding: 1.25rem;
+      background: var(--mp-dark);
+      color: #f8fafc;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Utility */
+    .hidden { display: none !important; }
+  </style>
 </head>
 <body>
 
-  <div class="main-layout">
+  <!-- Top Navigation Lockup -->
+  <header class="mp-header">
+    <div class="mp-brand" id="brandNav">
+      <div class="mp-logo-badge">MARATHON</div>
+      <div class="mp-title-lockup">
+        <h1>Internal Knowledge Base</h1>
+        <p>Production &amp; Prepress Operations</p>
+      </div>
+    </div>
+    <div class="header-tag">Marathon Press, Inc.</div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="mp-container">
     
-    <!-- TIMELINE Side Navigation -->
-    <aside class="side-nav">
-      <div class="brand">
-        <h1>Marathon Production KB</h1>
-        <span class="badge">V0.1</span>
-      </div>
-      
-      <div class="nav-section">
-        <h2>CORE TOPICS</h2>
-        <ul id="categoryList">
-          <li class="active" data-cat="all">All Documentation</li>
-          <li data-cat="SiteFlow">SiteFlow</li>
-          <li data-cat="Presses">Presses</li>
-          <li data-cat="Prepress / Impostrip">Prepress / Impostrip</li>
-          <li data-cat="Bindery">Bindery</li>
-        </ul>
-      </div>
-      
-      <div class="nav-footer">
-        <p>A repository for workflow and process optimization.</p>
-        <p>&copy; <span id="currentYear"></span> Marathon Press</p>
-      </div>
-    </aside>
-
-    <!-- Content Area (Canvas) -->
-    <main class="content-canvas">
-      
-      <!-- Search Interface -->
-      <header class="content-header">
-        <div class="search-box">
-          <svg class="search-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-          <input type="text" id="searchInput" placeholder="Search workflow solutions, error codes, machine fixes..." autocomplete="off">
+    <!-- Search / Directory View -->
+    <section id="searchView">
+      <div class="hero-section">
+        <h2>Production Documentation</h2>
+        <p>Search across machine settings, SiteFlow formulas, prepress templates, and operational troubleshooting.</p>
+        
+        <div class="search-container">
+          <input type="text" id="searchInput" class="search-input" placeholder="Search by error, machine (BQ-500, HP 120K), or workflow..." autocomplete="off">
         </div>
-        <button id="addArticleBtn" class="primary-btn view-hidden">+ NEW ARTICLE</button>
-      </header>
 
-      <!-- Articles Grid/List -->
-      <section id="resultsSection" class="results-area view-active">
-        <div class="results-info" id="resultsCount">Loading documentation...</div>
-        <div id="resultsList" class="results-list">
-          <!-- Articles are injected here by app.js -->
+        <div class="category-pills" id="categoryPills">
+          <button class="pill active" data-cat="all">All Documentation</button>
+          <button class="pill" data-cat="SiteFlow">SiteFlow</button>
+          <button class="pill" data-cat="Press">Presses</button>
+          <button class="pill" data-cat="Prepress">Prepress / Impostrip</button>
+          <button class="pill" data-cat="Bindery">Bindery</button>
         </div>
-      </section>
+      </div>
 
-      <!-- TIMELINE Markdown Reader (Centered) -->
-      <article id="articleReader" class="reader-area view-hidden">
-        <button class="back-link" id="backToResults">← Back to search results</button>
+      <div class="results-status">
+        <span id="resultsStatusLabel">All Records</span>
+      </div>
+
+      <div class="results-grid" id="resultsGrid">
+        <!-- Rendered Cards -->
+      </div>
+    </section>
+
+    <!-- Reading View -->
+    <section id="readerView" class="hidden">
+      <div class="reader-pane">
+        <button class="back-btn" id="backBtn">&larr; Return to Documentation Search</button>
         
         <div class="reader-header">
-          <span id="articleCategoryTag" class="category-tag"></span>
-          <p id="articleMetaDate" class="date-meta"></p>
+          <span id="readerCategory" class="reader-category-badge">Category</span>
+          <span id="readerDate" class="reader-date">Last Updated</span>
         </div>
 
-        <div id="markdownBody" class="markdown-content">
-          <!-- Rendered markdown injected here -->
-        </div>
-      </article>
+        <article id="readerMarkdown" class="markdown-body">
+          <!-- Rendered Markdown Body -->
+        </article>
+      </div>
+    </section>
 
-    </main>
-  </div>
+  </main>
 
-  <script src="app.js"></script>
+  <script>
+    let articles = [];
+    let fuse = null;
+    let selectedCategory = 'all';
+
+    async function init() {
+      try {
+        const res = await fetch('articles.json');
+        if (!res.ok) throw new Error('Could not load articles.json');
+        articles = await res.json();
+
+        fuse = new Fuse(articles, {
+          keys: [
+            { name: 'title', weight: 0.5 },
+            { name: 'tags', weight: 0.3 },
+            { name: 'summary', weight: 0.2 }
+          ],
+          threshold: 0.35,
+          ignoreLocation: true
+        });
+
+        renderGrid(articles);
+        bindEvents();
+      } catch (err) {
+        document.getElementById('resultsGrid').innerHTML = `
+          <div style="grid-column: 1/-1; text-align: center; padding: 2rem; color: #c8102e;">
+            <strong>articles.json not loaded:</strong> Ensure articles.json exists in your root folder.
+          </div>`;
+      }
+    }
+
+    function filterDocs() {
+      const query = document.getElementById('searchInput').value.trim();
+      let results = articles;
+
+      if (selectedCategory !== 'all') {
+        results = results.filter(item => item.category.toLowerCase() === selectedCategory.toLowerCase());
+      }
+
+      if (query) {
+        results = fuse.search(query).map(r => r.item);
+        if (selectedCategory !== 'all') {
+          results = results.filter(item => item.category.toLowerCase() === selectedCategory.toLowerCase());
+        }
+      }
+
+      const status = document.getElementById('resultsStatusLabel');
+      if (query || selectedCategory !== 'all') {
+        status.innerText = `Showing ${results.length} Document${results.length === 1 ? '' : 's'}`;
+      } else {
+        status.innerText = `All Records (${results.length})`;
+      }
+
+      renderGrid(results);
+    }
+
+    function renderGrid(list) {
+      const grid = document.getElementById('resultsGrid');
+      grid.innerHTML = '';
+
+      if (list.length === 0) {
+        grid.innerHTML = '<div style="grid-column: 1/-1; text-align:center; padding: 3rem; color: #64748b;">No production records found matching your criteria.</div>';
+        return;
+      }
+
+      list.forEach(article => {
+        const card = document.createElement('div');
+        card.className = 'doc-card';
+        card.innerHTML = `
+          <div>
+            <div class="doc-card-category">${article.category}</div>
+            <h3>${article.title}</h3>
+            <p>${article.summary}</p>
+          </div>
+          <div class="doc-card-footer">Updated: ${article.updated}</div>
+        `;
+        card.onclick = () => openDoc(article);
+        grid.appendChild(card);
+      });
+    }
+
+    async function openDoc(article) {
+      try {
+        const res = await fetch(article.path);
+        if (!res.ok) throw new Error('Markdown file not found');
+        const mdText = await res.text();
+
+        document.getElementById('readerCategory').innerText = article.category;
+        document.getElementById('readerDate').innerText = `Verified: ${article.updated}`;
+        document.getElementById('readerMarkdown').innerHTML = marked.parse(mdText);
+
+        document.getElementById('searchView').classList.add('hidden');
+        document.getElementById('readerView').classList.remove('hidden');
+        window.scrollTo(0, 0);
+      } catch (err) {
+        alert('Could not open document: ' + err.message);
+      }
+    }
+
+    function closeDoc() {
+      document.getElementById('readerView').classList.add('hidden');
+      document.getElementById('searchView').classList.remove('hidden');
+    }
+
+    function bindEvents() {
+      document.getElementById('searchInput').addEventListener('input', filterDocs);
+
+      document.getElementById('categoryPills').addEventListener('click', (e) => {
+        if (e.target.tagName !== 'BUTTON') return;
+        document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+        e.target.classList.add('active');
+        selectedCategory = e.target.dataset.cat;
+        filterDocs();
+      });
+
+      document.getElementById('backBtn').addEventListener('click', closeDoc);
+      document.getElementById('brandNav').addEventListener('click', closeDoc);
+    }
+
+    window.onload = init;
+  </script>
 </body>
 </html>
