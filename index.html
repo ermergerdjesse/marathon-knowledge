@@ -9,41 +9,62 @@
   <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.basic.min.js"></script>
 </head>
 <body>
-  <div class="layout">
-    <aside class="sidebar">
-      <div class="brand">
-        <h2>Marathon KB</h2>
-        <span class="badge">V0.1</span>
+
+  <!-- Top Navigation Header -->
+  <header class="top-nav">
+    <div class="nav-brand" id="brandHome" title="Return to Search">
+      <span class="brand-title">Marathon KB</span>
+      <span class="badge">V0.1</span>
+    </div>
+  </header>
+
+  <main class="app-container">
+    <!-- Home / Search View -->
+    <section id="searchHomeView" class="view-active">
+      <div class="search-hero">
+        <h1>Production Knowledge Base</h1>
+        <p>Search workflows, press quirks, SiteFlow formulas, and bindery troubleshooting.</p>
+        
+        <div class="search-box-wrapper">
+          <input type="text" id="searchInput" placeholder="Type a symptom, machine, or error (e.g. BQ-500, HP 120K, auto-send)..." autocomplete="off" autofocus />
+        </div>
+
+        <div class="category-filter-wrapper">
+          <span class="filter-label">Filter Category:</span>
+          <div class="category-pills" id="categoryPills">
+            <button class="pill active" data-cat="all">All</button>
+            <button class="pill" data-cat="SiteFlow">SiteFlow</button>
+            <button class="pill" data-cat="Press">Presses</button>
+            <button class="pill" data-cat="Prepress">Prepress / Impostrip</button>
+            <button class="pill" data-cat="Bindery">Bindery</button>
+          </div>
+        </div>
       </div>
-      <input type="text" id="searchInput" placeholder="Search knowledge (e.g. BQ-500, PDF, JDF)..." />
+
+      <!-- Live Search Results Grid -->
+      <div class="results-container">
+        <div class="results-header" id="resultsCount">All Documentation</div>
+        <div class="results-grid" id="resultsGrid">
+          <!-- Article cards injected by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Reading / Article View -->
+    <section id="articleReaderView" class="view-hidden">
+      <button class="back-btn" id="backToSearchBtn">← Back to Search</button>
       
-      <div class="filter-group">
-        <h4>Categories</h4>
-        <ul id="categoryList">
-          <li class="active" data-cat="all">All Items</li>
-          <li data-cat="SiteFlow">SiteFlow</li>
-          <li data-cat="Press">Presses</li>
-          <li data-cat="Prepress">Prepress / DFE</li>
-          <li data-cat="Bindery">Bindery</li>
-        </ul>
+      <div class="reader-meta" id="readerMeta">
+        <span id="articleCategoryTag" class="tag"></span>
+        <span id="articleDateTag" class="date-text"></span>
       </div>
 
-      <div class="sidebar-articles" id="articleList">
-        <!-- Injected by app.js -->
-      </div>
-    </aside>
-
-    <main class="content-pane">
-      <div id="metadataBar" class="meta-bar" style="display:none;">
-        <span id="metaCategory" class="tag"></span>
-        <span id="metaUpdated"></span>
-      </div>
-      <article id="articleContent">
-        <h1>Marathon Production Knowledge</h1>
-        <p>Select an article from the left or search across production notes, machine fixes, and routing rules.</p>
+      <article id="articleMarkdownContent" class="markdown-body">
+        <!-- Rendered markdown injected here -->
       </article>
-    </main>
-  </div>
+    </section>
+  </main>
+
   <script src="app.js"></script>
 </body>
 </html>
