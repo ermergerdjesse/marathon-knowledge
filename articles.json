@@ -1,11 +1,11 @@
 [
   {
-    "id": "sf-01",
+    "id": "sf-001",
     "title": "SiteFlow Component Auto-Send Device Routing",
     "category": "SiteFlow",
-    "tags": ["routing", "xml", "pdf", "automation"],
+    "tags": ["siteflow", "routing", "xml", "pdf", "hot folder", "jdf"],
     "summary": "Handling dual output requirements when SiteFlow limits auto-send to one device per component.",
-    "path": "docs/siteflow/auto-send-devices.md",
+    "path": "docs/siteflow/siteflow-routing-rules.md",
     "updated": "2026-10-05"
   },
   {
