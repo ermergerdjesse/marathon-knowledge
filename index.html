@@ -11,7 +11,7 @@
 
   <style>
     /* =========================================================
-       MARATHON BRAND DESIGN SYSTEM (Embedded - Never breaks)
+       MARATHON BRAND DESIGN SYSTEM
        ========================================================= */
     :root {
       --mp-red: #c8102e;
@@ -449,7 +449,8 @@
 
     async function init() {
       try {
-        const res = await fetch('articles.json');
+        const cacheBuster = '?t=' + Date.now();
+        const res = await fetch('articles.json' + cacheBuster);
         if (!res.ok) throw new Error('Could not load articles.json');
         articles = await res.json();
 
@@ -525,8 +526,21 @@
 
     async function openDoc(article) {
       try {
-        const res = await fetch(article.path);
-        if (!res.ok) throw new Error('Markdown file not found');
+        const cleanPath = article.path.replace(/^\/+/, '');
+        const targetUrl = new URL(cleanPath, window.location.href).href + '?t=' + Date.now();
+        
+        let res = await fetch(targetUrl);
+
+        // Fallback to raw GitHub content if Pages CDN lags or returns 404
+        if (!res.ok) {
+          const rawFallback = `https://raw.githubusercontent.com/ermergerdjesse/marathon-knowledge/main/${cleanPath}`;
+          res = await fetch(rawFallback);
+        }
+
+        if (!res.ok) {
+          throw new Error(`HTTP ${res.status}: Could not locate file at ${cleanPath}`);
+        }
+
         const mdText = await res.text();
 
         document.getElementById('readerCategory').innerText = article.category;
