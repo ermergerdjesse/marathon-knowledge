@@ -23,7 +23,7 @@
     "category": "Siteflow",
     "tags": ["siteflow", "routing", "xml", "pdf", "error"],
     "summary": "Identifying Errored Orders/PDFs",
-    "path": "errored-orders.md",
+    "path": "docs/siteflow/errored-orders.md",
     "updated": "2026-10-05"
   }
 ]
