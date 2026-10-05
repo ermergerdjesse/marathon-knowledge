@@ -7,23 +7,5 @@
     "summary": "Handling dual output requirements when SiteFlow limits auto-send to one device per component.",
     "path": "docs/siteflow/siteflow-routing-rules.md",
     "updated": "2026-10-05"
-  },
-  {
-    "id": "hp-01",
-    "title": "HP 120K Desaturation & Magenta Hue Shift",
-    "category": "Press",
-    "tags": ["hp120k", "color", "dfe", "rip"],
-    "summary": "Fixing washed-out print output where source PDFs show correct color balance.",
-    "path": "docs/hp/120k-magenta-desaturation.md",
-    "updated": "2026-09-28"
-  },
-  {
-    "id": "bind-01",
-    "title": "Horizon BQ-480 / BQ-500 Glue Overrun & Tearing",
-    "category": "Bindery",
-    "tags": ["horizon", "bq500", "eva", "nipper"],
-    "summary": "Curing adhesive squeeze-out, milling depth setup, and spine tear issues.",
-    "path": "docs/bindery/horizon-eva-glue-troubleshooting.md",
-    "updated": "2026-08-20"
   }
 ]
