@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marathon Knowledge Base</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.basic.min.js"></script>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand">
+        <h2>Marathon KB</h2>
+        <span class="badge">V0.1</span>
+      </div>
+      <input type="text" id="searchInput" placeholder="Search knowledge (e.g. BQ-500, PDF, JDF)..." />
+      
+      <div class="filter-group">
+        <h4>Categories</h4>
+        <ul id="categoryList">
+          <li class="active" data-cat="all">All Items</li>
+          <li data-cat="SiteFlow">SiteFlow</li>
+          <li data-cat="Press">Presses</li>
+          <li data-cat="Prepress">Prepress / DFE</li>
+          <li data-cat="Bindery">Bindery</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-articles" id="articleList">
+        <!-- Injected by app.js -->
+      </div>
+    </aside>
+
+    <main class="content-pane">
+      <div id="metadataBar" class="meta-bar" style="display:none;">
+        <span id="metaCategory" class="tag"></span>
+        <span id="metaUpdated"></span>
+      </div>
+      <article id="articleContent">
+        <h1>Marathon Production Knowledge</h1>
+        <p>Select an article from the left or search across production notes, machine fixes, and routing rules.</p>
+      </article>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
