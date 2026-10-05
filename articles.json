@@ -31,8 +31,8 @@
     "title": "Errored Files",
     "category": "Siteflow",
     "tags": ["siteflow", "xml", "press", "impositions", "info"],
-    "summary": "Identifying Errored Orders/PDFs",
-    "path": "docs/siteflow/imp-standardization.md",
+    "summary": "Understanding Impositions",
+    "path": "docs/imposition/imp-standardization.md",
     "updated": "2026-10-05 5:29 p.m."
   }
 ]
