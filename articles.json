@@ -16,5 +16,14 @@
     "summary": "Standard operating procedure for cleaning and wipe down on the HP 120K press.",
     "path": "docs/press/120k-1/Wipe Procedure.md",
     "updated": "2026-10-05"
+  },
+  {
+    "id": "sf-002",
+    "title": "Errored Files",
+    "category": "Siteflow",
+    "tags": ["siteflow", "routing", "xml", "pdf", "error"],
+    "summary": "Identifying Errored Orders/PDFs",
+    "path": "errored-orders.md",
+    "updated": "2026-10-05"
   }
 ]
