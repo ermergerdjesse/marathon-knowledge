@@ -4,7 +4,7 @@ Before, we had 100s+ of custom cuts at Press Cut; now it's down to 8 - 10 variou
 
 For example, 8.5x8.5" book is cut the same way as an 8x8 book. It is ran through the PUR with the same materials making it more efficient. All of these books have the same exact information on them so it is easier for production to determine the work needed on the one specific book.  
 
-## Imposition Walkthrough,  
+## Imposition Walkthrough   
 ### Imposition Name: HC_6P_HPMAX_AU_Fabric Cover 85x85  
 1. Comp Barcode Face A - Datamatrix QR of component Barcode on face of book on side A  
 2. Job Info Face A - Job information on face of book on side A  
