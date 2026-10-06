@@ -28,10 +28,10 @@
   },
   {
     "id": "sf-003",
-    "title": "Errored Files",
+    "title": "Understanding Standard Impositions",
     "category": "Siteflow",
     "tags": ["siteflow", "xml", "press", "impositions", "info"],
-    "summary": "Understanding Impositions",
+    "summary": "Standard Impositions",
     "path": "docs/imposition/imp-standardization.md",
     "updated": "2026-10-05 5:29 p.m."
   }
