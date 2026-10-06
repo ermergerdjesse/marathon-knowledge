@@ -1,4 +1,4 @@
-Why
+The Why <br />
 Rather than creating custom one-off templates for each client or subtle size variants, any incoming client-submitted file can automatically route into one of four standardized sheet layouts based on size.
 Before, we had 100s+ of custom cuts at Press Cut; now it's down to 8 - 10 various sizes.
 
