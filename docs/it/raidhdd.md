@@ -13,12 +13,11 @@
 <br />
 SSH Interface: System/Tool  
 PowerEdge RAID  
-<br />
-1. Run CMD  
-2. SSH into the server using: “ssh root@<Server IP Address>”. 
-3. Run: “perccli64 /c0 show". 
-4. Locate the section titled “Physical Drives = #” to find information about the RAID such as thetotal amount drives, the size, the models, etc.  
-5. Type “exit” + Enter  
+1. Run CMD
+2. SSH into the server using: “ssh root@<Server IP Address>”
+3. Run: “perccli64 /c0 show"
+4. Locate the section titled “Physical Drives = #” to find information about the RAID such as thetotal amount drives, the size, the models, etc.
+5. Type “exit” + Enter
 <br />
 Code/Scripts:  
 GUI Interface Code/Scripts:  
