@@ -10,8 +10,8 @@
 3. Run: “C:\Dell\Drivers\1XC7Y\Windows\perccli64.exe /c0 show”
 4. Locate the section titled “Physical Drives = #” to find information about the RAID such as thetotal amount drives, the size, the models, etc.
 5. Type “exit” + Enter
-<br />
-SSH Interface: System/Tool  
+---
+##### SSH Interface: System/Tool  
 PowerEdge RAID  
 1. Run CMD
 2. SSH into the server using: “ssh root@<Server IP Address>”
