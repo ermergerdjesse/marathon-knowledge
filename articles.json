@@ -1,14 +1,5 @@
 [
   {
-    "id": "sf-001",
-    "title": "SiteFlow Component Auto-Send Device Routing",
-    "category": "SiteFlow",
-    "tags": ["siteflow", "routing", "xml", "pdf", "hot folder", "jdf"],
-    "summary": "Handling dual output requirements when SiteFlow limits auto-send to one device per component.",
-    "path": "docs/siteflow/siteflow-routing-rules.md",
-    "updated": "2026-10-05 11:10 a.m."
-  },
-  {
     "id": "press-001",
     "title": "HP 120K Wipe Procedure",
     "category": "Press",
