@@ -3,16 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marathon Press — Production Knowledge Base</title>
-  
-  <!-- Markdown parser & Search engine -->
+  <title>Marathon Press — Knowledge Base</title>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.basic.min.js"></script>
 
   <style>
-    /* =========================================================
-       MARATHON BRAND DESIGN SYSTEM
-       ========================================================= */
     :root {
       --mp-red: #c8102e;
       --mp-red-hover: #a50b23;
@@ -39,7 +34,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Top Navigation */
     .mp-header {
       background-color: #ffffff;
       border-bottom: 2px solid var(--mp-border);
@@ -93,7 +87,6 @@
       font-weight: 600;
     }
 
-    /* Main Container */
     .mp-container {
       max-width: 1040px;
       width: 100%;
@@ -102,7 +95,6 @@
       flex: 1;
     }
 
-    /* Hero / Search Section */
     .hero-section {
       text-align: center;
       margin-bottom: 3rem;
@@ -123,7 +115,6 @@
       margin: 0 auto 2rem auto;
     }
 
-    /* Clean Search Bar */
     .search-container {
       max-width: 720px;
       margin: 0 auto 1.5rem auto;
@@ -148,7 +139,6 @@
       box-shadow: 0 0 0 4px rgba(200, 16, 46, 0.12);
     }
 
-    /* Category Pill Selectors */
     .category-pills {
       display: flex;
       justify-content: center;
@@ -179,7 +169,6 @@
       color: #ffffff;
     }
 
-    /* Results Header & Grid */
     .results-status {
       display: flex;
       justify-content: space-between;
@@ -253,7 +242,6 @@
       font-weight: 600;
     }
 
-    /* Article Reader */
     .reader-pane {
       background-color: #ffffff;
       border: 1px solid var(--mp-card-border);
@@ -307,7 +295,6 @@
       font-weight: 500;
     }
 
-    /* Clean Markdown Typography */
     .markdown-body {
       color: #334155;
       font-size: 1.05rem;
@@ -375,7 +362,6 @@
       margin-bottom: 1.5rem;
     }
 
-    /* Utility */
     .hidden { display: none !important; }
   </style>
 </head>
@@ -387,7 +373,7 @@
       <div class="mp-logo-badge">MARATHON</div>
       <div class="mp-title-lockup">
         <h1>Internal Knowledge Base</h1>
-        <p>Production &amp; Prepress Operations</p>
+        <p>Operations</p>
       </div>
     </div>
     <div class="header-tag">Marathon Press, Inc.</div>
@@ -400,7 +386,7 @@
     <section id="searchView">
       <div class="hero-section">
         <h2>Production Documentation</h2>
-        <p>Search across machine settings, SiteFlow formulas, prepress templates, and operational troubleshooting.</p>
+        <p>Search across FAQ, Customer Info, PrePress, SiteFlow and more. . .</p>
         
         <div class="search-container">
           <input type="text" id="searchInput" class="search-input" placeholder="Search by error, machine (BQ-500, HP 120K), or workflow..." autocomplete="off">
@@ -413,6 +399,7 @@
           <button class="pill" data-cat="Prepress">Prepress</button>
           <button class="pill" data-cat="Bindery">Bindery</button>
           <button class="pill" data-cat="Shipping">Shipping</button>
+          <button class="pill" data-cat="IT">IT</button>
         </div>
       </div>
 
@@ -436,7 +423,6 @@
         </div>
 
         <article id="readerMarkdown" class="markdown-body">
-          <!-- Rendered Markdown Body -->
         </article>
       </div>
     </section>
