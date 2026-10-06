@@ -18,11 +18,10 @@ PowerEdge RAID
 3. Run: “perccli64 /c0 show"
 4. Locate the section titled “Physical Drives = #” to find information about the RAID such as thetotal amount drives, the size, the models, etc.
 5. Type “exit” + Enter
-<br />
+---
 Code/Scripts:  
 GUI Interface Code/Scripts:  
 C:\Dell\Drivers\1XC7Y\Windows\perccli64.exe /c0 show  
-<br />
 SSH Interface Code/Scripts:  
 ssh root@<Server IP Address>  
 perccli64 /c0 show  
