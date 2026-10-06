@@ -21,6 +21,5 @@ PowerEdge RAID
 ---
 GUI Interface Code/Scripts:  
 C:\Dell\Drivers\1XC7Y\Windows\perccli64.exe /c0 show  
-SSH Interface Code/Scripts:  
-ssh root@<Server IP Address>  
+SSH Interface Code/Scripts: ssh root@<Server IP Address>  
 perccli64 /c0 show  
