@@ -34,7 +34,7 @@ For example, 8.5x8.5" book is cut the same way as an 8x8 book. It is ran through
 24. Final Size - Short Alias at the top right to show the final size of book, sticks out of book to easily sort books post PUR
 ---
 
-Before this,
+Before this,  
 8.5x8.5 Fabric Cover  
 8.5x8.5 Printed Cover   
 6x8 Fabric Cover  
