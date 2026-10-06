@@ -27,6 +27,15 @@
     "updated": "2026-10-05 5:09 p.m."
   },
   {
+    "id": "sh-001",
+    "title": "Importing Shipping Labels B2B",
+    "category": "Shipping",
+    "tags": ["shipping", "labels", "xml", "pdf", "AU"],
+    "summary": "How to import shipping labels into FedEx",
+    "path": "docs/shipping/importingshippinglabelsforB2BAU.md",
+    "updated": "2026-10-06 3:05 p.m."
+  },
+  {
     "id": "sf-003",
     "title": "Understanding Standard Impositions",
     "category": "Siteflow",
