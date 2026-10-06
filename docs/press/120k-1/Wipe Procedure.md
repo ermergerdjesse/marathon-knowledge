@@ -1,4 +1,4 @@
-12k DFE WIPE INSTRUCTIONS PROVIDED BY HP
+# 12k DFE WIPE INSTRUCTIONS PROVIDED BY HP
  
 STEP 1: EXPORT ALL THE SITEFLOW JOBS AND DELETE ALL COMMERCIAL JOBS
 First you will want to stop the System Manager, Pres Controller and RIP services. Then you will want to clear all temp files from the following directories (Some of the temp files won’t delete):
