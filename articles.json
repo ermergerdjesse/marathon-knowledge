@@ -31,9 +31,18 @@
     "title": "Perfectly Clear Color Correction",
     "category": "Pre-Press",
     "tags": ["perfectlyclear", "prepress", "it", "pdf", "ROES"],
-    "summary": "Perfectly Clear - Color Correctdion",
+    "summary": "Perfectly Clear - Color Correction",
     "path": "docs/prepress/perfectlyclear.md",
     "updated": "2026-10-06 3:51 p.m."
+  },
+  {
+    "id": "it-001",
+    "title": "Identifying RAID Hard Drives",
+    "category": "IT",
+    "tags": ["it", "prepress", "RAID"],
+    "summary": "How to Identify an individual RAID Hard drive",
+    "path": "docs/it/raidhdd.md",
+    "updated": "2026-10-06 4:00 p.m."
   },
   {
     "id": "sf-002",
