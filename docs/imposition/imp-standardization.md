@@ -34,5 +34,14 @@ For example, 8.5x8.5" book is cut the same way as an 8x8 book. It is ran through
 24. Final Size - Short Alias at the top right to show the final size of book, sticks out of book to easily sort books post PUR
 ---
 
-Before this, the 8.5x8.5 Fabric Cover, 8.5x8.5 Printed Cover, 6x8 Fabric Cover, 6x8 Printed Cover, 8x6 Fabric Cover, 8x6 Printed Cover, 6x6 Printed Cover, 9x9 Printed Cover, etc. all had separate impositions.  
+Before this,
+8.5x8.5 Fabric Cover  
+8.5x8.5 Printed Cover   
+6x8 Fabric Cover  
+6x8 Printed Cover  
+8x6 Fabric Cover  
+8x6 Printed Cover  
+6x6 Printed Cover  
+9x9 Printed Cover  
+etc. all had separate impositions.  
 Now, there are only 2 different ones which is super fast to change, spending more time checking the changes made, rather than making them so it is more consistent!
