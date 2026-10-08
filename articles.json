@@ -29,7 +29,7 @@
   {
     "id": "prepress-001",
     "title": "Perfectly Clear Color Correction",
-    "category": "Pre-Press",
+    "category": "PrePress",
     "tags": ["perfectlyclear", "prepress", "it", "pdf", "ROES"],
     "summary": "Perfectly Clear - Color Correction",
     "path": "docs/prepress/perfectlyclear.md",
@@ -65,7 +65,7 @@
   {
     "id": "sf-002",
     "title": "Printing Overs and Extra items",
-    "category": "Pre-Press",
+    "category": "PrePress",
     "tags": ["siteflow", "prepress", "press", "impositions", "design"],
     "summary": "Understanding the use of overs and the quantity to use",
     "path": "docs/siteflow/making-overs-for-products.md",
