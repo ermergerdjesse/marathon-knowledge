@@ -56,7 +56,7 @@
   {
     "id": "ship-003",
     "title": "Creating Custom Shipping Labels in Siteflow",
-    "category": "Shipping",
+    "category": "Siteflow",
     "tags": ["shipping", "labels", "xml", "pdf", "AU"],
     "summary": "Workaround for DHL and long-term solution for AU or Special Customer's Orders",
     "path": "docs/shipping/special-shipping-labels.md",
