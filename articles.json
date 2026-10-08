@@ -59,7 +59,7 @@
     "category": "Siteflow",
     "tags": ["shipping", "labels", "xml", "pdf", "AU"],
     "summary": "Workaround for DHL and long-term solution for AU or Special Customer's Orders",
-    "path": "docs/shipping/special-shipping-labels.md",
+    "path": "docs/siteflow/special-shipping-labels.md",
     "updated": "2026-10-08 3:43 p.m."
   },
   {
