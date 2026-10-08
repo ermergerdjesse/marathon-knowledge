@@ -45,12 +45,21 @@
     "updated": "2026-10-06 4:00 p.m."
   },
   {
-    "id": "ship-001",
+    "id": "ship-002",
     "title": "Exporting Tracking Number in FedEx Ship Manager",
     "category": "Shipping",
     "tags": ["shipping", "labels", "xml", "pdf", "AU"],
     "summary": "Exporting AU B2B Orders for Tracking Numbers in FedEx Ship Manager",
     "path": "docs/shipping/exportingtracking.md",
+    "updated": "2026-10-08 3:43 p.m."
+  },
+  {
+    "id": "ship-003",
+    "title": "Creating Custom Shipping Labels in Siteflow",
+    "category": "Shipping",
+    "tags": ["shipping", "labels", "xml", "pdf", "AU"],
+    "summary": "Workaround for DHL and long-term solution for AU or Special Customer's Orders",
+    "path": "docs/shipping/special-shipping-labels.md",
     "updated": "2026-10-08 3:43 p.m."
   },
   {
