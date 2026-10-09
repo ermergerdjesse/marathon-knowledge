@@ -1,4 +1,5 @@
-# This is to help show whether an issue is our fault or the client's. It isn't to blame each other, but to show where the issue needs to be fixed
+# This is to help show whether an issue is our fault or the client's.
+##### It isn't to blame each other, but to show where the issue needs to be fixed
 ## Incorrect SKU Placement
 When a client places an incorrect SKU under a speciality product, it messes a lot up.
 _Speciality products include 7x7s, static items, custom foil stamping_
