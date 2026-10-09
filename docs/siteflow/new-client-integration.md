@@ -5,21 +5,17 @@ This guide outlines payload requirements and valid sample data for submitting or
 ---
 
 ## Global Order & Shipping Rules
-
-### Destination & Order Envelope
-* `destination.name`: Must be set to `"hp.marathonpressinc"`.
-* `customerName`: Enter your assigned brand name.
-* `sourceOrderId`: Unique order identifier. Preferred length is under 15 characters; maximum limit is 25 characters.
-* `tags`: Optional array for internal flags. Leave empty `[]` if unused.
-* `sourceItemId`: Unique item identifier within a multi-book order.
-* `sku`: Product SKU (e.g., `CLIENT_10X10_HARDCOVER`). Final SKUs are provisioned upon product creation.
-
-### Shipping & Return Addresses (`shipments`)
-* Required fields: Missing required fields will halt order preflight and prevent shipping label generation.
-* Phone numbers: Required 10-digit format with digits only (no spaces, hyphens, or parentheses). If your platform does not collect a phone number, pass ten zeros (`"0000000000"`).
-* Country codes: Both `country` and `isoCountry` require the 2-character ISO country code (e.g., `"US"`). Both are required for domestic and international processing.
-* `shipByDate`: Optional target dispatch date (`YYYY-MM-DD`) for scheduling visibility.
-* Return address: Fully customizable to your brand details. Marathon Press does not process physical package returns; address failures require a re-order submission.
+* `destination.name`: Must be set to `"hp.marathonpressinc"`
+* `customerName`: Enter your assigned brand name
+* `sourceOrderId`: Unique order identifier. Preferred length is under 15 characters; maximum limit is 25 characters
+* `tags`: Optional array for internal flags. Leave empty `[]` if unused
+* `sourceItemId`: Unique item identifier within a multi-book order
+* `sku`: Product SKU (e.g., `CLIENT_10X10_HARDCOVER`). Final SKUs are provisioned upon product creation
+* Required fields: Missing required fields will halt order preflight and prevent shipping label generation
+* Phone numbers: Required 10-digit format with digits only (no spaces, hyphens, or parentheses). If your platform does not collect a phone number, pass ten zeros (`"0000000000"`)
+* Country codes: Both `country` and `isoCountry` require the 2-character ISO country code (e.g., `"US"`). Both are required for domestic and international processing
+* `shipByDate`: Optional target dispatch date (`YYYY-MM-DD`) for scheduling visibility
+* Return address: Fully customizable to your brand details. Marathon Press disposes of package returns; address failures require a re-order submission
 
 ---
 
