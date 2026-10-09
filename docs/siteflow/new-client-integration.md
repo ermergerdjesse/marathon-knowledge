@@ -26,10 +26,10 @@ This guide outlines payload requirements and valid sample data for submitting or
 ## 1. Printed Cover Hardcover Photo Book with Lamination
 
 ### Specifications
-* Components: Requires two components: `pages` (interior book block) and `cover` (case wrap).
-* Attribute Mirroring: Attributes are mirrored identically across both components to streamline integration.
-* `attributes.pages`: Total count of individual pages inside the pages PDF.
-* `attributes.lamination`: Supported finishes are `"gloss"`, `"matte"`, or `"softtouch"`.
+* Components: Requires two components: `pages` (interior book block) and `cover` (case wrap)
+* Attribute Mirroring: Attributes are mirrored identically across both components to streamline integration
+* `attributes.pages`: Total count of individual pages inside the pages PDF
+* `attributes.lamination`: Supported finishes are `"gloss"`, `"matte"`, or `"softtouch"`
 
 ### Sample Payload
 
@@ -113,11 +113,10 @@ This guide outlines payload requirements and valid sample data for submitting or
 ```
 ## Printed Cover Layflat Photobook with Lamination
 ### Specifications
-*Requires two components: pages (interior book block) and cover (case wrap).
-*Attribute Mirroring: Attributes are mirrored identically across both components to streamline integration.
-*attributes.pages: Total count of spreads inside the pages PDF (if the layflat is open, laying flat the left and right page together is one spread).
-*attributes.lamination: Supported finishes are "gloss", "matte", or "softtouch".
-
+* Components: Requires two components: `pages` (interior book block) and `cover` (case wrap)
+* Attribute Mirroring: Attributes are mirrored identically across both components to streamline integration
+* `attributes.pages`: Total count of individual pages inside the pages PDF
+* `attributes.lamination`: Supported finishes are `"gloss"`, `"matte"`, or `"softtouch"`
 ```json
 {
   "destination": {
@@ -198,10 +197,10 @@ This guide outlines payload requirements and valid sample data for submitting or
 ```
 ## Printed Cover Softcover with Lamination
 ### Specifications
-*Requires two components: pages (interior book block) and cover (softcover wrap).
-*Attribute Mirroring: Attributes are mirrored identically across both components to streamline integration.
-*attributes.pages: Total count of individual pages inside the pages PDF.
-*attributes.lamination: Supported finishes are "gloss", "matte", or "softtouch".
+* Requires two components: pages (interior book block) and cover (softcover wrap)
+* Attribute Mirroring: Attributes are mirrored identically across both components to streamline integration
+* `attributes.pages`: Total count of individual pages inside the pages PDF
+* `attributes.lamination`: Supported finishes are `"gloss"`, `"matte"`, or `"softtouch"`
 ```json
 {
   "destination": {
@@ -282,10 +281,10 @@ This guide outlines payload requirements and valid sample data for submitting or
 ```
 ## Fabric Wrapped Hardcover Photo Book
 ### Specifications
-*Components: Requires two components: pages (interior book block) and cover (fabric preview or reference asset).
-*Attribute Mirroring: Attributes are mirrored identically across both components to streamline integration.
-*attributes.pages: Total count of individual pages inside the pages PDF.
-*attributes.coverColor: Supported options are "Red", "Blue", "Pink", "Yellow", or "Black".
+* Components: Requires two components: pages (interior book block) and cover (fabric preview or reference asset)
+* Attribute Mirroring: Attributes are mirrored identically across both components to streamline integration
+* `attributes.pages`: Total count of individual pages inside the pages PDF
+* `attributes.coverColor`: Supported options are `"Red"`, `"Blue"`, `"Pink"`, `"Yellow"`, or `"Black"` for example
 ```json
 {
   "destination": {
@@ -368,8 +367,8 @@ This guide outlines payload requirements and valid sample data for submitting or
 ### Specifications
 *Components: Requires two components: pages (interior book block) and cover (fabric preview or reference asset).
 *Attribute Mirroring: Attributes are mirrored identically across both components to streamline integration.
-*attributes.pages: Total count of spreads inside the pages PDF (if the layflat is open, laying flat the left and right page together is one spread).
-*attributes.coverColor: Supported options are "Red", "Blue", "Pink", "Yellow", or "Black" for example
+*`attributes.pages`: Total count of spreads inside the pages PDF (if the layflat is open, laying flat the left and right page together is one spread).
+*`attributes.coverColor`: Supported options are `"Red"`, `"Blue"`, `"Pink"`, `"Yellow"`, or `"Black"` for example
 ```json
 {
   "destination": {
@@ -452,19 +451,19 @@ This guide outlines payload requirements and valid sample data for submitting or
 ### Specifications
 *Requires two components: pages (interior book block) and cover (composite visual proof)
 *Attribute Mirroring: Attributes are mirrored identically across both components to streamline integration
-*attributes.pages: Total count of spreads inside the pages PDF (if the layflat is open, laying flat the left and right page together is one spread)
-*attributes.coverColor: Supported options are "Red", "Blue", "Pink", "Yellow", or "Black" for example
-*attributes.coverText1: Line 1 of foil stamping text
-*attributes.coverFont1: Line 1 cover font name
-*attributes.coverFontSize1: Line 1 cover font size
-*attributes.coverPosition1: Vertical placement on cover ("Top", "Middle", or "Bottom")
-*attributes.coverAlignment1: Horizontal placement on cover ("Left", "Middle", or "Right")
-*attributes.coverText2: Line 2 of foil stamping text
-*attributes.coverFont2: Line 2 cover font name
-*attributes.coverFontSize2: Line 2 cover font size
-*attributes.coverPosition2: Vertical placement on cover ("Top", "Middle", or "Bottom")
-*attributes.coverAlignment2: Horizontal placement on cover ("Left", "Middle", or "Right")
-*cover.path: URL to a preview generated of the final product depicting foil stamping, foil color, and linen color
+*`attributes.pages`: Total count of spreads inside the pages PDF (if the layflat is open, laying flat the left and right page together is one spread)
+*`attributes.coverColor`: Supported options are `"Red"`, `"Blue"`, `"Pink"`, `"Yellow"`, or `"Black"` for example
+*`attributes.coverText1`: Line 1 of foil stamping text
+*`attributes.coverFont1`: Line 1 cover font name
+*`attributes.coverFontSize1`: Line 1 cover font size
+*`attributes.coverPosition1`: Vertical placement on cover (`"Top"`, `"Middle"`, or `"Bottom"`)
+*`attributes.coverAlignment1`: Horizontal placement on cover (`"Left"`, `"Middle"`, or `"Right"`)
+*`attributes.coverText2`: Line 2 of foil stamping text
+*`attributes.coverFont2`: Line 2 cover font name
+*`attributes.coverFontSize2`: Line 2 cover font size
+*`attributes.coverPosition2`: Vertical placement on cover (`"Top"`, `"Middle"`, or `"Bottom"`)
+*`attributes.coverAlignment2`: Horizontal placement on cover (`"Left"`, `"Middle"`, or `"Right"`)
+*`cover.path`: URL to a preview generated of the final product depicting foil stamping, foil color, and linen color
 ```json
 {
   "destination": {
