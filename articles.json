@@ -59,7 +59,7 @@
     "category": "Siteflow",
     "tags": ["shipping", "labels", "xml", "pdf", "AU"],
     "summary": "Workaround for DHL and long-term solution for AU or Special Customer's Orders",
-    "path": "docs/siteflow/shipping/special-shipping-labels.md",
+    "path": "docs/siteflow/shipping/siteflowspecial-shipping-labels.md",
     "updated": "2026-10-08 5:20 p.m."
   },
   {
@@ -79,6 +79,15 @@
     "summary": "Identifying order issues and fixing them",
     "path": "docs/siteflow/troubleshooting/identifying-order-issues.md",
     "updated": "2026-10-09 1:03 p.m."
+  },
+  {
+    "id": "sf-003",
+    "title": "Creating/Adjusting Infotechs",
+    "category": "Siteflow",
+    "tags": ["siteflow", "prepress", "infotechs", "clients", "json"],
+    "summary": "Creating and Adjust Infotechs",
+    "path": "docs/siteflow/infotechgeneration/infotechs.md",
+    "updated": "2026-10-09 1:34 p.m."
   },
   {
     "id": "sf-002",
