@@ -90,6 +90,24 @@
     "updated": "2026-10-09 1:34 p.m."
   },
   {
+    "id": "sf-003",
+    "title": "Initial Integration Documents",
+    "category": "Siteflow",
+    "tags": ["siteflow", "prepress", "integration", "clients", "json"],
+    "summary": "Template to send client for inital integration",
+    "path": "docs/siteflow/new-client-documents/initial-integration-documents.md",
+    "updated": "2026-10-09 4:17 p.m."
+  },
+  {
+    "id": "sf-003",
+    "title": "Initial Sample Data",
+    "category": "Siteflow",
+    "tags": ["siteflow", "prepress", "integration", "clients", "json"],
+    "summary": "Sample JSON for all products",
+    "path": "docs/siteflow/new-client-documents/sample-data.md",
+    "updated": "2026-10-09 4:17 p.m."
+  },
+  {
     "id": "sf-002",
     "title": "Understanding Standard Impositions",
     "category": "Siteflow",
