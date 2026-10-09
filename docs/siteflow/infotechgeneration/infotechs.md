@@ -40,3 +40,7 @@ This is done using a `SWITCH` statement:
 "PR21931805","10499",
 "PR21936008","10500",
 "NEW INVENTORY")
+```
+## Other Useful Tools
+Property Help - https://www.w3schools.com/css
+  This goes into detail on possible CSS strings to uniquely identify infotechs or adding images
