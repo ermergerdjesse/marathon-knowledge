@@ -3,7 +3,6 @@
 This guide outlines payload requirements and valid sample data for submitting orders to Marathon Press via SiteFlow.
 
 ---
-
 ## Global Order & Shipping Rules
 * `destination.name`: Must be set to `"hp.marathonpressinc"`
 * `customerName`: Enter your assigned brand name
