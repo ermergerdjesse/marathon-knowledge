@@ -27,6 +27,7 @@ Gotchas/Points of Confusion
 ## Sample Data to send clients for products
 ---
 ### Printed Cover Hardcover Photo Book with Lamination
+---
 {
     "destination": {
         "name": "hp.marathonpressinc"
