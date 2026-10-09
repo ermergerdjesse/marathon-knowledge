@@ -1,4 +1,4 @@
-The screenshot reveals that conversation text got accidentally pasted in at the top (or flattened into spaces... whitespace.Markdown# Product Integration...), and the heavy bolding (**Field Name**) across every bullet item causes it to visually blend in with section headings like Destination & Order Envelope.   The complete file below removes the accidental preamble text, drops all artificial bolding on explanatory text, keeps field names cleanly styled in standard inline code (code), formats the product specifications as bullet lists with natural text, and uses native Markdown for the FAQ.Markdown# Product Integration Specifications & Sample Payloads
+# Product Integration Specifications & Sample Payloads
 
 This guide outlines payload requirements and valid sample data for submitting orders to Marathon Press via SiteFlow.
 
@@ -111,12 +111,13 @@ This guide outlines payload requirements and valid sample data for submitting or
   }
 }
 ```
+## Printed Cover Layflat Photobook with Lamination
+### Specifications
+*Requires two components: pages (interior book block) and cover (case wrap).
+*Attribute Mirroring: Attributes are mirrored identically across both components to streamline integration.
+*attributes.pages: Total count of spreads inside the pages PDF (if the layflat is open, laying flat the left and right page together is one spread).
+*attributes.lamination: Supported finishes are "gloss", "matte", or "softtouch".
 
-## Printed Cover Layflat Photobook with Lamination specifications
-Requires two components: pages (interior spreads) and cover (case wrap)
-Attribute Mirroring: Attributes are mirrored across both components
-Attributes.pages: Total count of spreads in the pages PDF (e.g., 48 pages / 2 = 24)
-Attributes.lamination: Supported finishes are "gloss", "matte", or "softtouch"
 ```json
 {
   "destination": {
@@ -195,8 +196,14 @@ Attributes.lamination: Supported finishes are "gloss", "matte", or "softtouch"
   }
 }
 ```
-## Printed Cover Softcover with Lamination Specifications
-Requires two components: pages (interior book block) and cover (softcover wrap).Attribute Mirroring: Attributes are mirrored across both components.attributes.pages: Total count of individual pages inside the pages PDF.attributes.lamination: Supported finishes are "gloss", "matte", or "softtouch".Sample PayloadJSON{
+## Printed Cover Softcover with Lamination
+### Specifications
+*Requires two components: pages (interior book block) and cover (softcover wrap).
+*Attribute Mirroring: Attributes are mirrored identically across both components to streamline integration.
+*attributes.pages: Total count of individual pages inside the pages PDF.
+*attributes.lamination: Supported finishes are "gloss", "matte", or "softtouch".
+```json
+{
   "destination": {
     "name": "hp.marathonpressinc"
   },
@@ -272,7 +279,15 @@ Requires two components: pages (interior book block) and cover (softcover wrap).
     ]
   }
 }
-4. Fabric Wrapped Hardcover Photo BookSpecificationsComponents: Requires two components: pages (interior book block) and cover (fabric preview or reference asset).Attribute Mirroring: Attributes are mirrored across both components.attributes.pages: Total count of individual pages inside the pages PDF.attributes.coverColor: Supported options are "Red", "Blue", "Pink", "Yellow", or "Black".Sample PayloadJSON{
+```
+## Fabric Wrapped Hardcover Photo Book
+### Specifications
+*Components: Requires two components: pages (interior book block) and cover (fabric preview or reference asset).
+*Attribute Mirroring: Attributes are mirrored identically across both components to streamline integration.
+*attributes.pages: Total count of individual pages inside the pages PDF.
+*attributes.coverColor: Supported options are "Red", "Blue", "Pink", "Yellow", or "Black".
+```json
+{
   "destination": {
     "name": "hp.marathonpressinc"
   },
@@ -348,7 +363,15 @@ Requires two components: pages (interior book block) and cover (softcover wrap).
     ]
   }
 }
-5. Fabric Wrapped Layflat Photo BookSpecificationsComponents: Requires two components: pages (interior spreads) and cover (fabric preview or reference asset).Attribute Mirroring: Attributes are mirrored across both components.attributes.pages: Total count of spreads in the pages PDF (e.g., 48 pages / 2 = 24).attributes.coverColor: Supported options are "Red", "Blue", "Pink", "Yellow", or "Black".Sample PayloadJSON{
+```
+## Fabric Wrapped Layflat Photo Book
+### Specifications
+*Components: Requires two components: pages (interior book block) and cover (fabric preview or reference asset).
+*Attribute Mirroring: Attributes are mirrored identically across both components to streamline integration.
+*attributes.pages: Total count of spreads inside the pages PDF (if the layflat is open, laying flat the left and right page together is one spread).
+*attributes.coverColor: Supported options are "Red", "Blue", "Pink", "Yellow", or "Black" for example
+```json
+{
   "destination": {
     "name": "hp.marathonpressinc"
   },
@@ -424,7 +447,26 @@ Requires two components: pages (interior book block) and cover (softcover wrap).
     ]
   }
 }
-6. Fabric Wrapped Layflat Photo Book with Foil StampingSpecificationsComponents: Requires two components: pages (interior spreads) and cover (composite visual proof).Attribute Mirroring: Foil and binding attributes are mirrored identically across both components.attributes.pages: Total count of spreads in the pages PDF.attributes.coverColor: Supported options are "Red", "Blue", "Pink", "Yellow", or "Black".coverText[N]: Text string for Line N of foil stamping.coverFont[N]: Font name for Line N.coverFontSize[N]: Font size for Line N.coverPosition[N]: Vertical placement ("Top", "Middle", or "Bottom").coverAlignment[N]: Horizontal placement ("Left", "Middle", or "Right").cover.path: Composite rendering proof depicting foil stamping, foil color, and linen substrate.Sample PayloadJSON{
+```
+## Fabric Wrapped Layflat Photo Book with Foil Stamping
+### Specifications
+*Requires two components: pages (interior book block) and cover (composite visual proof)
+*Attribute Mirroring: Attributes are mirrored identically across both components to streamline integration
+*attributes.pages: Total count of spreads inside the pages PDF (if the layflat is open, laying flat the left and right page together is one spread)
+*attributes.coverColor: Supported options are "Red", "Blue", "Pink", "Yellow", or "Black" for example
+*attributes.coverText1: Line 1 of foil stamping text
+*attributes.coverFont1: Line 1 cover font name
+*attributes.coverFontSize1: Line 1 cover font size
+*attributes.coverPosition1: Vertical placement on cover ("Top", "Middle", or "Bottom")
+*attributes.coverAlignment1: Horizontal placement on cover ("Left", "Middle", or "Right")
+*attributes.coverText2: Line 2 of foil stamping text
+*attributes.coverFont2: Line 2 cover font name
+*attributes.coverFontSize2: Line 2 cover font size
+*attributes.coverPosition2: Vertical placement on cover ("Top", "Middle", or "Bottom")
+*attributes.coverAlignment2: Horizontal placement on cover ("Left", "Middle", or "Right")
+*cover.path: URL to a preview generated of the final product depicting foil stamping, foil color, and linen color
+```json
+{
   "destination": {
     "name": "hp.marathonpressinc"
   },
@@ -520,4 +562,16 @@ Requires two components: pages (interior book block) and cover (softcover wrap).
     ]
   }
 }
-Frequently Asked Questions1. Why are attributes duplicated amongst components?While this may require slightly more mapping up front during development, it minimizes development work needed when introducing new products, implementing platform improvements, or deploying additional customization options down the road.2. Why is the Linen Foil Stamping broken out per line?Due to our internal automation pipelines, foil stamping data is ingested through a normalized, fixed schema. Ingesting per-line parameters allows our production systems to route orders directly into the foil stamping queue with maximum speed and reliability.3. What are the SKUs that will be sent on the order placement?SKUs are finalized during client onboarding. They will be provided once your specific cover finishes, sizing specifications, and binding styles are created.4. What if we don't gather the customer's phone numbers on order placement?A 10-digit phone number is strictly required by carriers to generate shipping labels. If your customer checkout does not collect a phone number, pass ten zeros ("0000000000").
+```
+Frequently Asked Questions
+1. Why are attributes duplicated amongst components?
+While this may require slightly more mapping up front during development, it minimizes development work needed when introducing new products, implementing platform improvements, or deploying additional customization options down the road.
+
+2. Why is the Linen Foil Stamping broken out per line?
+Due to our internal automation pipelines, foil stamping data is ingested through a normalized, fixed schema. Ingesting per-line parameters allows our production systems to route orders directly into the foil stamping queue with maximum speed and reliability.
+
+3. What are the SKUs that will be sent on the order placement?
+SKUs are finalized during client onboarding. They will be provided once your specific cover finishes, sizing specifications, and binding styles are created.
+
+4. What if we don't gather the customer's phone numbers on order placement?
+A 10-digit phone number is strictly required by carriers to generate shipping labels. If your customer checkout does not collect a phone number, pass ten zeros ("0000000000").
