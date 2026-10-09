@@ -1,9 +1,3 @@
-Here is the reformatted version preserving your exact document order: each product's specification notes/rules appear first, immediately followed by its clean, valid sample JSON payload, with the FAQ closing out the document.Markdown# Product Integration Specifications & Sample Payloads
-
-This guide outlines payload requirements and valid sample data for submitting orders to Marathon Press via SiteFlow.
-
----
-
 ## Global Order & Shipping Rules
 
 ### Destination & Order
