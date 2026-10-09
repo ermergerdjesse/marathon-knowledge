@@ -64,12 +64,21 @@
   },
   {
     "id": "sf-002",
-    "title": "Printing Overs and Extra items",
+    "title": "Printing Overs and Extra Items",
     "category": "PrePress",
     "tags": ["siteflow", "prepress", "press", "impositions", "design"],
     "summary": "Understanding the use of overs and the quantity to use",
     "path": "docs/siteflow/making-overs-for-products.md",
     "updated": "2026-10-08 5:36 p.m."
+  },
+  {
+    "id": "sf-003",
+    "title": "Identifying Order Issues",
+    "category": "Siteflow",
+    "tags": ["siteflow", "prepress", "press", "clients", "json"],
+    "summary": "Identifying order issues and fixing them",
+    "path": "docs/siteflow/identifying-order-issues.md",
+    "updated": "2026-10-09 1:03 p.m."
   },
   {
     "id": "sf-002",
