@@ -42,5 +42,5 @@ This is done using a `SWITCH` statement:
 "NEW INVENTORY")
 ```
 ## Other Useful Tools
-Property Help - https://www.w3schools.com/css
+Property Help - https://www.w3schools.com/css <br />
   This goes into detail on possible CSS strings to uniquely identify infotechs or adding images
