@@ -2,11 +2,10 @@
 ## AU B2B
 <br />
 
-1. Databases
-2. File Maintenance
-3. Export
-4. Template Name: EXPORTSHIPMENT
-5. Name the file
-6. OK
-7. Ship Date = Correct Date of Shipment
-8. OK
+1. Open FedEx Ship Manager
+2. At the top of the application, click “Databases” → “File Maintenance” → “Export”
+3. Change the template name to "EXPORTSHIPMENT"
+4. Name the file something unique and choose a location for the file.
+5. Click OK
+6. Select the date that the shipment took place.
+7. Click OK
