@@ -110,11 +110,14 @@ This guide outlines payload requirements and valid sample data for submitting or
     ]
   }
 }
-2. Printed Cover Layflat Photobook with Lamination pecifications
+```
+
+## Printed Cover Layflat Photobook with Lamination specifications
 Requires two components: pages (interior spreads) and cover (case wrap)
 Attribute Mirroring: Attributes are mirrored across both components
 Attributes.pages: Total count of spreads in the pages PDF (e.g., 48 pages / 2 = 24)
 Attributes.lamination: Supported finishes are "gloss", "matte", or "softtouch"
+```json
 {
   "destination": {
     "name": "hp.marathonpressinc"
@@ -191,7 +194,9 @@ Attributes.lamination: Supported finishes are "gloss", "matte", or "softtouch"
     ]
   }
 }
-3. Printed Cover Softcover with LaminationSpecificationsComponents: Requires two components: pages (interior book block) and cover (softcover wrap).Attribute Mirroring: Attributes are mirrored across both components.attributes.pages: Total count of individual pages inside the pages PDF.attributes.lamination: Supported finishes are "gloss", "matte", or "softtouch".Sample PayloadJSON{
+```
+## Printed Cover Softcover with Lamination Specifications
+Requires two components: pages (interior book block) and cover (softcover wrap).Attribute Mirroring: Attributes are mirrored across both components.attributes.pages: Total count of individual pages inside the pages PDF.attributes.lamination: Supported finishes are "gloss", "matte", or "softtouch".Sample PayloadJSON{
   "destination": {
     "name": "hp.marathonpressinc"
   },
