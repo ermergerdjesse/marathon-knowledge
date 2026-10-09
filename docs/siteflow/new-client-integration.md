@@ -25,7 +25,6 @@ Gotchas/Points of Confusion
 4. There is no true test environment. Any orders submitted into production for test purposes, and not intended for fulfillment, must be cancelled before being printed. Order data can be validated to a limited extent by POSTing it to https://pro-api.oneflowcloud.com/api/order/validate. Again, the validation is limited, there may be certain aspects of some order item products that the validate call does not handle correctly.
 ---
 ## Sample Data to send clients for products
----
 ### Printed Cover Hardcover Photo Book with Lamination
 ---
 {
