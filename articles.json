@@ -108,6 +108,15 @@
     "updated": "2026-10-09 4:17 p.m."
   },
   {
+    "id": "sf-014",
+    "title": "Device Agent Information",
+    "category": "Siteflow",
+    "tags": ["siteflow", "prepress", "integration", "troubleshooting", "json"],
+    "summary": "Inspecting Device Agent health and status",
+    "path": "docs/siteflow/troubleshooting/device-agent-info.md",
+    "updated": "2026-10-09 4:17 p.m."
+  },
+  {
     "id": "sf-013",
     "title": "Understanding Standard Impositions",
     "category": "Siteflow",
