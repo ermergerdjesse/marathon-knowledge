@@ -25,3 +25,7 @@ If it is a newly installed device, you don't need to change any devices pointing
 If it is replacing a new device and a workflow is already created, change all devices pointing to the new agent
 
 Link to Google Drive showing everything: https://drive.google.com/drive/folders/1ekvOYWprcgyOjcNM-Z4jFuwJ-ijo-jsx?usp=drive_link
+
+### Most Common Errors within Device Agent
+1. Someone sent a job to a device that is not properly set up yet; i.e., this job isn't ready to accept this type of job
+- Some devices cannot accept certain jobs, such as the press not being able to print the size needed for the most part
