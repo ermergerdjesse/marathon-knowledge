@@ -29,3 +29,4 @@ Link to Google Drive showing everything: https://drive.google.com/drive/folders/
 ### Most Common Errors within Device Agent
 1. Someone sent a job to a device that is not properly set up yet; i.e., this job isn't ready to accept this type of job
 - Some devices cannot accept certain jobs, such as the press not being able to print the size needed for the most part
+2. The device agent is not able to accept any job; see above for lost connection or disconnection steps
