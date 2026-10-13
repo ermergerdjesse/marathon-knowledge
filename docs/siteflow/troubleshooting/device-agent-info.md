@@ -23,5 +23,5 @@ Link to video showing setup:
 6. Click on Agent to get activation token
 7. Input Activation token on the device added to
 
-If it is a new installed device, you don't need to change any devices pointing to it
+If it is a new installed device, you don't need to change any devices pointing to it <br />
 If it is replacing a new device and a workflow is already created, change all devices pointing to the new agent
