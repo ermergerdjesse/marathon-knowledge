@@ -2,9 +2,9 @@
 We can POST or PUT whichever is easiest for you. If you have an endpoint setup, please send over the address. If it requires authentication, please send that over too.
 Just a standard URL to post info to, i.e. "https://order-api.joeschmoe.com/fulfillment/order/shipment?partner=marathon"
 We can postback the following information;
-  Order Received
   
 ```json
+  Order Received
       {
           "TimeStamp":"{{timestamp}}",
           "SourceOrderId":"{{data.orderData.sourceOrderId}}",
