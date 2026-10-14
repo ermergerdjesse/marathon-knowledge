@@ -1,6 +1,7 @@
 # POSTback info
-We can POST or PUT whichever is easiest for you. If you have an endpoint setup, please send over the address. If it requires authentication, please send that over too.
-Just a standard URL to post info to, i.e. "https://order-api.joeschmoe.com/fulfillment/order/shipment?partner=marathon"
+We can POST or PUT whichever is easiest for you. <br />
+If you have an endpoint setup, please send over the address. If it requires authentication, please send that over too. <br />
+Just a standard URL to post info to, i.e. "https://order-api.joeschmoe.com/fulfillment/order/shipment?partner=marathon" <br />
 We can postback the following information;
   
 ```json
