@@ -10,14 +10,14 @@ We can postback the following information;
           "SourceOrderId":"{{data.orderData.sourceOrderId}}",
           "OrderStatus":"received"
       }
- ```
+ 
   Order Cancelled
       {
           "TimeStamp":"{{timestamp}}",
           "SourceOrderId":"{{data.orderData.sourceOrderId}}",
           "OrderStatus":"cancelled"
       }
-```json
+
   Order Submission Error - If you would like, this shows any order sent to us incorrectly, whether it's missing a SKU name, shipping alias, or anything that is broken
       {
           "TimeStamp": "{{timestamp}}",
@@ -26,7 +26,7 @@ We can postback the following information;
           "Status": "Submission Error"
       }
   ^ It will say something similar to "ValidationFailed: Error processing component attributes for 'orderData.items[0].components[0].attributes['pages']'" etc.
-  ```
+
   Order shipped
       {
       "Shipment": {
@@ -45,3 +45,4 @@ We can postback the following information;
           "Method": "{{data.carrier.code}}/{{data.carrier.service}}" - Will state FedEx / 2 Day One Rate for example
           }
       }
+```
