@@ -1,1 +1,22 @@
+# Exporting jobs from an HP DFE
+1. Move all jobs on the one you are exporting from to the Press Controller
+  - If this is not done, you won't be able to one-click export all. Anything that is in the held queue or print queue will not allow you to export them
+  - If there are any errored jobs, ripping jobs, or pending jobs, it will not let you export these jobs as well
+2. Once all jobs are selected, right-click > Export> Save to \\192.168.1.{{DFEIP}}\Jobs\Exported
+  - This will speed the exporting process up by saving locally on the DFE instead of your PC
 
+### There are two ways to continue: 1. Resending the batches within SiteFlow or 2. Import all of the jobs into the other DFE.
+#### Downsides of 1.
+    - Takes a while to resend all batches
+    - Multiple UIs to go through each event to resend batches
+    - Have to be extremely careful not to delete a job you haven't sent yet within the Mounted Folder
+#### Downsides of 2.
+    - Reliant on internet speed
+    - Reliant on HP Software
+      - Sometimes the imported jobs hit 100%, but don't upload. This happens a lot, so I usually stick to less than 50 jobs and under 1 GB
+        - You can upload 50 jobs at once and upload 50 after they are completed is the best option
+    - Causes a slowdown on the DFE you are importing to
+
+Once we get to the point of sending the jobs via Webforms, this won't be as painful. Since we won't be using the DFE as a store-all and will only send 8 hours of work to press, instead of everything in-house
+
+https://drive.google.com/drive/folders/1pX8DAvlBk_X8SsdY6XG3mQPE8UCCcwaU?usp=sharing
