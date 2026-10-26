@@ -116,6 +116,15 @@
     "path": "docs/siteflow/troubleshooting/device-agent-info.md",
     "updated": "2026-10-09 4:17 p.m."
   },
+    {
+    "id": "sf-015",
+    "title": "Exporting Jobs from Press",
+    "category": "PrePress",
+    "tags": ["siteflow", "prepress", "press", "troubleshooting", "info"],
+    "summary": "Exporting jobs from Press and moving them",
+    "path": "docs/siteflow/troubleshooting/device-agent-info.md",
+    "updated": "2026-10-26 1:45 p.m."
+  },
   {
     "id": "sf-013",
     "title": "Understanding Standard Impositions",
