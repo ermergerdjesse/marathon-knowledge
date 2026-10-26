@@ -116,7 +116,7 @@
     "path": "docs/siteflow/troubleshooting/device-agent-info.md",
     "updated": "2026-10-09 4:17 p.m."
   },
-    {
+  {
     "id": "sf-015",
     "title": "Exporting Jobs from Press",
     "category": "PrePress",
@@ -124,6 +124,15 @@
     "summary": "Exporting jobs from Press and moving them",
     "path": "docs/prepress/exporting-jobs-dfe.md",
     "updated": "2026-10-26 1:45 p.m."
+  },
+  {
+    "id": "sf-016",
+    "title": "Zebra Printer Not Printing",
+    "category": "IT",
+    "tags": ["siteflow", "shipping", "labels", "troubleshooting", "info"],
+    "summary": "Exporting jobs from Press and moving them",
+    "path": "docs/it/zebra-print-iplost.md",
+    "updated": "2026-10-26 4:26 p.m."
   },
   {
     "id": "sf-013",
