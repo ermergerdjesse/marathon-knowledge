@@ -4,6 +4,7 @@
   - This will print all of the printer information, IP, media size, print quality, etc.
 2. Determine what the IP address SHOULD be by troubleshooting the device agent/send to device log/sticker on the physical printer
 ----
+<br />
 Once you have what the IP address should be, log in to the web interface for the Zebra printer
 1. Go to 192.168.{{xxx}}.{{xx}} - Click View and Modify Printer Settings > 1234 or admin for password usually
 2. Click on Network Configuration > TCP/IP Settings > Type in the correct IP Address
