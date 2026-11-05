@@ -7,6 +7,7 @@ For example,
 1. AU 7x7 books are static spread counts. This goes to press with a specific imposition to put every book all the way down the sheet, instead of sorting every page manually. If a SKU == 20 spreads but is sent as 25, it messes the imposition up.
 2. Papier Notebooks come pre-stamped from another supplier, and we pull based on the SKU. If they order a Papier Stamped Notebook, but the SKU they sent is for a Marathon Stamped Notebook, this causes a lot of confusion.
 3. Custom die-stamped books are specific to the design. If they order a book for stamping 2027 in large letters, middle-center, but the SKU is 2026 and the ticket is incorrect, this is their issue
+4. An order placed as a specific orientation, but the SKU is for the other orientation sent, i.e. 3.5x2 business card was sent to us with a file for a 2x3.5 (2W" x 3.5H")
 
 ## Incorrect Page Counts
 When a client places incorrect page counts under any product, it messes up more than just production. This will impact production, billing, and forecasting if not handled in a timely manner.
