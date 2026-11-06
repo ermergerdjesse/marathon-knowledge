@@ -130,9 +130,18 @@
     "title": "Zebra Printer Not Printing",
     "category": "IT",
     "tags": ["siteflow", "shipping", "labels", "troubleshooting", "info"],
-    "summary": "Exporting jobs from Press and moving them",
+    "summary": "Zebra Printer not printing labels",
     "path": "docs/it/zebra-print-iplost.md",
     "updated": "2026-10-26 4:26 p.m."
+  },
+    {
+    "id": "sf-017",
+    "title": "Creating New Products",
+    "category": "PrePress",
+    "tags": ["siteflow", "newproducts", "labels", "troubleshooting", "info"],
+    "summary": "How to create new products in SiteFlow",
+    "path": "docs/siteflow/newproducts/creating-new-products.md",
+    "updated": "2026-11-06 12:15 p.m."
   },
   {
     "id": "sf-013",
