@@ -74,15 +74,15 @@ Anything with HC_(x)P will have a fabric option, or be printed. Use printed if t
 There are a lot of things that can go wrong or be incorrect above, so I will list out the most common issues below.
 
 #### FAQ/Issues
-1. Why don't we want to create new hardcover sizes?
+1. Why don't we want to create new hardcover sizes?<br />
 Hardcovers require physical boards to make the cover. We have several boards right now; the only difference is 0.25" in height compared ot a different board
-2. A customer submitted an order, but it didn't go through into Site Flow
+2. A customer submitted an order, but it didn't go through into Site Flow<br />
 Ask for the JSON from the Customer, and look the data over to make sure everything looks good. If it does, it is on our side. Go to Orders > Submission Errors, and the error will be there
-3. The test order printed badly on the press
+3. The test order printed badly on the press<br />
 Refer back to Standard Impositions. These were set up to make the new product development easier and faster. If a custom imposition is set up, it is prone to errors
-4. The batch is failing to send to press
-Refer to troubleshooting, but the shortest steps to take are here;
-- Check if the input method & ticket template are created on the press
-- Check if you're sending the job to the correct press (the press can't print the size needed, etc.)
-- Check if you're sending the job to the correct switch workflow (ask for help if unknown)
+4. The batch is failing to send to press<br />
+Refer to troubleshooting, but the shortest steps to take are here;<br />
+- Check if the input method & ticket template are created on the press<br />
+- Check if you're sending the job to the correct press (the press can't print the size needed, etc.)<br />
+- Check if you're sending the job to the correct switch workflow (ask for help if unknown)<br />
 - Check the device agent you're sending to for an extensive error, and it will tell you exactly why it cannot be received
